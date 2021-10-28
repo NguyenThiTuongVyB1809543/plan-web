@@ -10,8 +10,8 @@ import CreateProduct from './components/products/CreateProduct';
 import EditProduct from './components/products/EditProduct';
 import OderProduct from './components/products/OderProduct';
 import EditOder from './components/products/EditOder';
-import User from './components/products/User';
-import EditUser from './components/products/EditUser';
+import User from './components/User/User';
+import EditUser from './components/User/EditUser';
 import MyEditor from './components/text_editor/MyEditor';
 
 function App() {

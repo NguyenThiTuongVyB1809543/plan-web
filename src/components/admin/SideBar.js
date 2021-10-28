@@ -6,8 +6,8 @@ import CreateProduct from '../products/CreateProduct';
 import EditProduct from '../products/EditProduct';
 import OderProduct from '../products/OderProduct';
 import EditOder from '../products/EditOder';
-import EditUser from '../products/EditUser';
-import User from '../products/User';
+import EditUser from '../User/EditUser';
+import User from '../User/User';
 
 function SideBar(){
     return(

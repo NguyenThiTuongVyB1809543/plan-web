@@ -1,10 +1,10 @@
-import './Product.css';
+import './User.css';
 import { NavLink,  Route } from 'react-router-dom';
 import React, { useState } from 'react';
 
 
-function EditUser (){
-
+function EditUser (props){
+    console.log(props);
     let [ten_khach_hang, setName] = useState('');
     let [dia_chi, setAddress] = useState('');
     let [so_dien_thoai, setNumberPhone] = useState('');

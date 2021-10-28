@@ -1,7 +1,7 @@
 import './Product.css';
-import {Route, NavLink } from 'react-router-dom';
+import {Route, NavLink, useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
-
+import {addProduct} from '../../services/ProductServices';
 
 function CreateProduct() {
 
@@ -12,6 +12,8 @@ function CreateProduct() {
     let [chi_tiet_san_pham, setChiTietSP] = useState('');
     let [trang_thai, setTrangThaiSP] = useState('');
    
+    let history = useHistory();
+
     const handleSubmit = (event) => {
         event.preventDefault();
         let product = {
@@ -25,13 +27,17 @@ function CreateProduct() {
 
         }
         console.log(product);
-        
+        //call api
+        addProduct(product).then(
+            (response) => {
+                console.log(response);
+                if(response){
+                    //điều hướng về trang admin/product
+                    history.push('admin/product');
+                }
+            }
+        );
     }
-
-
-
-
-
 
 
     return(

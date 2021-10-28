@@ -1,8 +1,6 @@
 import './Product.css';
 import { Route, NavLink} from 'react-router-dom';
-import hoa_dam_bup from './img_product/hoa_dam_bup.png';
-import hoa_dam_bup_1 from './img_product/hoa_dam_bup_1.png';
-import hoa_dam_bup_2 from './img_product/hoa_dam_bup_2.png';
+
 function TableView(props){
     // console.log(props);
     
@@ -41,26 +39,28 @@ function TableView(props){
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {props.map((value, index)=>{
+                                                {props.productList.map((value, index)=>{
                                                     return(
                                                         <tr key={value.id}>
-                                                            <td>1</td>
+                                                            <td>{value.id}</td>
                                                             <td>{value.id}</td>
                                                             <td>{value.name}</td>
-                                                            <td>{value.name}</td>
-                                                            <td><img src={hoa_dam_bup} alt="bongbup"/></td>
-                                                            <td>{value.name}</td>
-                                                            <td>{value.name}</td>
+                                                            <td>{value.kind}</td>
+                                                            <td><img src={value.img} alt="bongbup"/></td>
+                                                            <td>{value.price}</td>
+                                                            <td>{value.detail}</td>
                                                             <td>
-                                                                <span className="label label-warning">{value.name}</span>
-        
+                                                                <span className="label label-warning">{value.status === true ? 'còn hàng' : 'hết hàng'}</span>
+                                                                
                                                             </td>
                                                             <td>
                                                                 <NavLink
-                                                                    to="/admin/product/edit"
-                                                                    className="btn btn-success mr-10"
+                                                                    to={{pathname: '/admin/product/edit', state: value.id}} // chỗ này được truyền qua EditProduct và được lấy bằng useLocation   
                                                                 >
-                                                                        Sửa
+                                                                    
+                                                                    <button type="button" class="btn btn-success mr-10">Sửa</button>
+                                                                    
+                                                                        
                                                                 </NavLink>
                                                                 <button
                                                                     type="button"
@@ -72,89 +72,7 @@ function TableView(props){
                                                         </tr>  
                                                     )
                                                 })}
-                                                {/* <tr>
-                                                    <td>1</td>
-                                                    <td>01</td>
-                                                    <td>{props.name}</td>
-                                                    <td>Cây cảnh khác</td>
-                                                    <td><img src={hoa_dam_bup} alt="bongbup"/></td>
-                                                    <td>{props.price}</td>
-                                                    <td>Bông bụp là bongo bụp á</td>
-                                                    <td>
-                                                        <span className="label label-warning">Còn Hàng</span>
-
-                                                    </td>
-                                                    <td>
-                                                        <NavLink
-                                                            to="/admin/product/edit"
-                                                            className="btn btn-success mr-10"
-                                                        >
-                                                                Sửa
-                                                        </NavLink>
-                                                        <button
-                                                            type="button"
-                                                            className="btn btn-danger"
-                                                        >
-                                                            Xóa
-                                                        </button>
-                                                    </td>
-                                                </tr> */}
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>01</td>
-                                                    <td>bông bụp</td>
-                                                    <td>Cây cảnh khác</td>
-                                                    <td><img src={hoa_dam_bup_1} alt="bongbup"/></td>
-                                                    <td>50.000</td>
-                                                    <td>Bông bụp là bongo bụp á</td>
-                                                    <td>
-                                                        <span className="label label-warning">Còn Hàng</span>
-
-                                                    </td>
-                                                    <td>
-                                                        <NavLink
-                                                            to="/admin/product/edit"
-                                                            className="btn btn-success mr-10"
-                                                        >
-                                                                Sửa
-                                                        </NavLink >
-                                                        <button
-                                                            type="button"
-                                                            className="btn btn-danger"
-                                                        >
-                                                            Xóa
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>01</td>
-                                                    <td>bông bụp</td>
-                                                    <td>Cây cảnh khác</td>
-                                                    <td><img src={hoa_dam_bup_2} alt="bongbup"/></td>
-                                                    <td>50.000</td>
-                                                    <td>Bông bụp là bongo bụp á</td>
-                                                    <td>
-                                                        
-                                                        <span className="label label-warning">Còn Hàng</span>
-                                                        
-
-                                                    </td>
-                                                    <td>
-                                                        <NavLink
-                                                            to="/admin/product/edit"
-                                                            className="btn btn-success mr-10"
-                                                        >
-                                                                Sửa
-                                                        </NavLink>
-                                                        <button
-                                                            type="button"
-                                                            className="btn btn-danger"
-                                                        >
-                                                            Xóa
-                                                        </button>
-                                                    </td>
-                                                </tr>
+                                                
                                             </tbody>
                                         </table>                                            
                                     </div>

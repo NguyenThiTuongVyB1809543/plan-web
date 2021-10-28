@@ -1,6 +1,9 @@
 import './Product.css';
-import { NavLink, Route } from 'react-router-dom';
-import React, { useState } from 'react';
+import { NavLink, Route, useLocation, useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { getProductById, updateProduct} from '../../services/ProductServices';
+
+
 
 function EditProduct() {
     let [ten_san_pham, setTenSP] = useState('');
@@ -10,9 +13,34 @@ function EditProduct() {
     let [chi_tiet_san_pham, setChiTietSP] = useState('');
     let [trang_thai, setTrangThaiSP] = useState('');
    
+    let history = useHistory();
+
+    //lấy value. id bên TableView qua
+    let location = useLocation();//là một hook của react router dom
+    let productId = location.state; //productId đây là id đã lấy được
+
+
+    //dùng useEffect để gọi api lấy data qua id vừa lấy được bằng location
+    useEffect( () => {
+        getProductById(productId).then(
+            (response) => {
+                console.log(response);
+                setTenSP (response.data.name);
+                setGiaSP(response.data.price);
+                setLoaiSP(response.data.kind);
+                setImgSP(response.data.img);
+                setChiTietSP(response.data.detail);
+                setTrangThaiSP(response.data.status);
+            }
+        );
+    })
+
+
+
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        let product = {
+        let newProduct = {
             id: '',
             name: ten_san_pham,
             price: gia_san_pham,
@@ -22,7 +50,19 @@ function EditProduct() {
             status: trang_thai
 
         }
-        console.log(product);
+        console.log(newProduct);
+        console.log(productId);
+        //call api cập nhật sản phẩm
+        updateProduct(productId, newProduct).then(
+            (response) => {
+                console.log(response);
+                if(response){
+                    //điều hướng về trang admin/product
+                    history.push('admin/product');
+                }
+            }
+        );
+
         
     }
     return(
