@@ -12,6 +12,7 @@ import OderProduct from './components/products/OderProduct';
 import EditOder from './components/products/EditOder';
 import User from './components/products/User';
 import EditUser from './components/products/EditUser';
+import MyEditor from './components/text_editor/MyEditor';
 
 function App() {
 	return (
@@ -40,7 +41,9 @@ function App() {
 			<Route exact path="/admin/orders/edit" component={EditOder}/>
 			<Route exact path="/admin/user" component={User}/>
 			<Route exact path="/admin/user/edit" component={EditUser}/>
+			<Route exact path="/admin/myeditor" component={MyEditor}/>
 		</Switch>
+		
 		// <div>
 		// 	<Admin/>
 		// </div>
