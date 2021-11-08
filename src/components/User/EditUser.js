@@ -1,23 +1,57 @@
 import './User.css';
-import { NavLink,  Route } from 'react-router-dom';
-import React, { useState } from 'react';
-
+import { NavLink,  Route, useLocation, useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { getUserById, updateUser} from '../../services/UserServices';
 
 function EditUser (props){
     console.log(props);
-    let [ten_khach_hang, setName] = useState('');
-    let [dia_chi, setAddress] = useState('');
-    let [so_dien_thoai, setNumberPhone] = useState('');
+    let [name_user, setName] = useState('');
+    let [address, setAddress] = useState('');
+    let [number_phone, setNumberPhone] = useState('');
    
+    // let history = useHistory();
+
+    //lấy value. id bên TableViewUser qua
+    let location = useLocation();//là một hook của react router dom
+    let userId = location.state; //userId đây là id đã lấy được từ bên TableViewUser truyền qua
+
+
+
+    //dùng useEffect để gọi api lấy data qua id vừa lấy được bằng location(lấy từ csdl)
+    // useEffect( () => {
+    //     getUserById(userId).then(
+    //         (response) => {
+    //             console.log(response);
+    //             setName (response.data.name_user);
+    //             setAddress(response.data.address);
+    //             setNumberPhone(response.data.number_phone);
+                
+    //         }
+    //     );
+    // }, [])
+
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        let product = {
-            id: '',
-            name: ten_khach_hang,
-            address: dia_chi,
-            numberPhone: so_dien_thoai
+        let newUser = {//lấy từ người dùng mới nhập thì có được new user
+            id: userId,
+            name: name_user,
+            address: address,
+            numberPhone: number_phone
         }
-        console.log(product);
+        console.log(newUser);
+        // console.log(userId);
+        // //call api cập nhật user
+        // updateUser(userId, newUser).then(
+        //     (response) => {
+        //         console.log(response);
+        //         if(response){
+        //             //điều hướng về trang admin/product
+        //             // history.push('admin/user');
+        //         }
+        //     }
+        // );
+
         
     }
 
@@ -35,7 +69,7 @@ function EditUser (props){
                                     type="text"
                                     className="form-control"
                                     name="name"
-                                    value={ten_khach_hang}
+                                    value={name_user}
                                     onChange={(event) => {setName(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}
                                     
                                     
@@ -47,7 +81,7 @@ function EditUser (props){
                                     type="text"
                                     className="form-control"
                                     name="address"
-                                    value={dia_chi}
+                                    value={address}
                                     onChange={(event) => {setAddress(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}
                                     
                                 
@@ -61,7 +95,7 @@ function EditUser (props){
                                     type="text"
                                     className="form-control"
                                     name="number_phone"
-                                    value={so_dien_thoai}
+                                    value={number_phone}
                                     onChange={(event) => {setNumberPhone(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}
                                     
                                 

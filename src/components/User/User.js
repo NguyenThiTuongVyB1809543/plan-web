@@ -1,7 +1,8 @@
 import { Route, NavLink } from 'react-router-dom'
 import TableViewUser from './TableViewUser';
 import './User.css';
-
+import { useState, useEffect} from 'react';
+import { getAllUser } from '../../services/UserServices';
 function User(){
     // const history = useHistory(); // use the hook of react router dom to automatically navigate
     let userList = [
@@ -24,6 +25,26 @@ function User(){
             number_phone: '070789435'
         },
     ];
+
+    // const [ userList, setUserList] = useState([]); 
+    
+    // useEffect( () => { //lấy dữ liệu từ csdl ra
+    //     getAllUser().then(
+    //         (response) => {
+    //             console.log(response);
+    //             // setUserList(response.data); //nếu muốn ra name thì response.data.name, nếu muốn ra deatail thì response.data.detail
+    //             setUserList(response.data.id);
+    //             setUserList(response.data.name_user);
+    //             setUserList(response.data.address);
+    //             setUserList(response.data.number_phone);
+    //         }
+    //     );
+    // }, userList);
+
+
+
+
+
     return(
         <div>
             <Route>
@@ -32,7 +53,7 @@ function User(){
                     <h1>Quản Lí Khách Hàng</h1>
 
                     <TableViewUser
-                        userList = {userList}
+                        userList = {userList}//truyền dữ liệu qua bản TableView
                     />
                     <NavLink to="/admin" className="btn btn-danger mr-10">
                         Trở Lại

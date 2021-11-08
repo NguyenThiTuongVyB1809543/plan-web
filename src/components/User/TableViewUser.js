@@ -1,7 +1,7 @@
 import './User.css';
 import { Route, NavLink} from 'react-router-dom';
 function TableViewUser(props){
-    console.log(props);
+    // console.log(props);
     return(
         <div>
             <Route>
@@ -19,7 +19,7 @@ function TableViewUser(props){
                             </tr>
                         </thead>
                         <tbody>
-                            {props.userList.map((value, index) => {
+                            {props.userList.map((value, index) => {//lấy từ dữ liệu bên user ra, mà dữ liệu bên đó thì lấy từ csdl
                                 return (
                                     <tr key = {value.id}>
                                         <td>1</td>
@@ -28,12 +28,15 @@ function TableViewUser(props){
                                         <td>{value.address}</td>
                                         <td>{value.number_phone}</td>
                                         <td>
+                                            
                                             <NavLink
-                                                to="/admin/user/edit"
-                                                className="btn btn-success mr-10"
+                                                to={{pathname: '/admin/user/edit', state: value.id}} // chỗ này để truyền id qua EditUser và được lấy bằng useLocation   
                                             >
-                                                    Sửa
-                                            </NavLink >
+                                                
+                                                <button type="button" className="btn btn-success mr-10">Sửa</button>
+                                                
+                                                    
+                                            </NavLink>
                                             <button
                                                 type="button"
                                                 className="btn btn-danger"
