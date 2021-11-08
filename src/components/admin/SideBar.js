@@ -4,10 +4,10 @@ import { NavLink, Route } from 'react-router-dom';
 import Product from '../products/Product';
 import CreateProduct from '../products/CreateProduct';
 import EditProduct from '../products/EditProduct';
-import OderProduct from '../products/OderProduct';
-import EditOder from '../products/EditOder';
-import EditUser from '../User/EditUser';
-import User from '../User/User';
+import OrderProduct from '../products/OrderProduct';
+import EditOrder from '../products/EditOrder';
+import EditUser from '../user/EditUser';
+import User from '../user/User';
 
 function SideBar(){
     return(
@@ -25,8 +25,8 @@ function SideBar(){
             <Route exact path="/admin/product" component={Product}/>
             <Route exact path="/admin/product/create" component={CreateProduct}/>
             <Route exact  path="/admin/product/edit" component={EditProduct}/>
-            <Route exact path="/admin/orders" component={OderProduct}/>
-            <Route exact path="/admin/orders/edit" component={EditOder}/>
+            <Route exact path="/admin/orders" component={OrderProduct}/>
+            <Route exact path="/admin/orders/edit" component={EditOrder}/>
             
             <Route exact path="/admin/user" component={User}/>
             <Route exact path="/admin/user/edit" component={EditUser}/>
