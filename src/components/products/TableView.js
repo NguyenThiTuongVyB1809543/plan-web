@@ -45,7 +45,7 @@ function TableView(props){
                                                             <td>{value.id}</td>
                                                             <td>{value.id}</td>
                                                             <td>{value.name}</td>
-                                                            <td>{value.kind}</td>
+                                                            <td>{value.category}</td>
                                                             <td><img src={value.img} alt="bongbup"/></td>
                                                             <td>{value.price}</td>
                                                             <td>{value.detail}</td>
@@ -58,7 +58,7 @@ function TableView(props){
                                                                     to={{pathname: '/admin/product/edit', state: value.id}} // chỗ này được truyền qua EditProduct và được lấy bằng useLocation   
                                                                 >
                                                                     
-                                                                    <button type="button" class="btn btn-success mr-10">Sửa</button>
+                                                                    <button type="button" className="btn btn-success mr-10">Sửa</button>
                                                                     
                                                                         
                                                                 </NavLink>

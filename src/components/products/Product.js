@@ -1,11 +1,11 @@
-import { Route, NavLink } from 'react-router-dom'
+import { Route, NavLink, useHistory } from 'react-router-dom'
 import TableView from './TableView';
 import './Product.css';
-import hoa_dam_bup from './img_product/hoa_dam_bup.png';
-import hoa_dam_bup_1 from './img_product/hoa_dam_bup_1.png';
-import hoa_dam_bup_2 from './img_product/hoa_dam_bup_2.png';
-import { useState, useEffect} from 'react';
-import {getAllProduct} from '../../services/ProductServices';
+// import hoa_dam_bup from './img_product/hoa_dam_bup.png';
+// import hoa_dam_bup_1 from './img_product/hoa_dam_bup_1.png';
+// import hoa_dam_bup_2 from './img_product/hoa_dam_bup_2.png';
+// import { useState, useEffect} from 'react';
+// import {getAllProduct} from '../../services/ProductServices';
 
 
 function Product(){
@@ -15,8 +15,8 @@ function Product(){
             id: '0',
             name: 'Bong bup',
             price: 30000,
-            kind: 'cactus',
-            img: hoa_dam_bup,
+            category: 'cactus',
+            img: '',
             detail: 'bong bup som no chieu tan',
             status: true
         },
@@ -24,8 +24,8 @@ function Product(){
             id: '1',
             name: 'Bong bup trang',
             price: 40000,
-            kind: 'hibicus',
-            img: hoa_dam_bup_1,
+            category: 'hibicus',
+            img: '',
             detail: 'bong bup som no chieu tan',
             status: true
         },
@@ -33,8 +33,8 @@ function Product(){
             id: '2',
             name: 'Bong bup trang',
             price: 50000,
-            kind: 'lili_water',
-            img: hoa_dam_bup_2,
+            category: 'lili_water',
+            img: '',
             detail: 'bong bup som no chieu tan',
             status: false
         }

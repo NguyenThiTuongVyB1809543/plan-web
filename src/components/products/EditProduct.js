@@ -6,34 +6,35 @@ import { getProductById, updateProduct} from '../../services/ProductServices';
 
 
 function EditProduct() {
-    let [ten_san_pham, setTenSP] = useState('');
-    let [gia_san_pham, setGiaSP] = useState('');
-    let [loai_san_pham, setLoaiSP] = useState('');
-    let [img_san_pham, setImgSP] = useState('');
-    let [chi_tiet_san_pham, setChiTietSP] = useState('');
-    let [trang_thai, setTrangThaiSP] = useState('');
+    let [name, setTenSP] = useState('');
+    let [price, setGiaSP] = useState('');
+    let [category, setLoaiSP] = useState('');
+    let [img, setImgSP] = useState('');
+    let [detail, setChiTietSP] = useState('');
+    let [status, setTrangThaiSP] = useState('');
    
     let history = useHistory();
 
-    //lấy value. id bên TableView qua
+    // lấy value. id bên TableView qua
     let location = useLocation();//là một hook của react router dom
     let productId = location.state; //productId đây là id đã lấy được
 
+    
 
     //dùng useEffect để gọi api lấy data qua id vừa lấy được bằng location
-    useEffect( () => {
-        getProductById(productId).then(
-            (response) => {
-                console.log(response);
-                setTenSP (response.data.name);
-                setGiaSP(response.data.price);
-                setLoaiSP(response.data.kind);
-                setImgSP(response.data.img);
-                setChiTietSP(response.data.detail);
-                setTrangThaiSP(response.data.status);
-            }
-        );
-    })
+    // useEffect( () => {
+    //     getProductById(productId).then( //mí cái data này lấy từ csdl
+    //         (response) => {
+    //             console.log(response);
+    //             setTenSP (response.data.name);
+    //             setGiaSP(response.data.price);
+    //             setLoaiSP(response.data.category);
+    //             setImgSP(response.data.img);
+    //             setChiTietSP(response.data.detail);
+    //             setTrangThaiSP(response.data.status);
+    //         }
+    //     );
+    // }, [])
 
 
 
@@ -42,26 +43,26 @@ function EditProduct() {
         event.preventDefault();
         let newProduct = {
             id: '',
-            name: ten_san_pham,
-            price: gia_san_pham,
-            kind: loai_san_pham,
-            img: img_san_pham,
-            detail: chi_tiet_san_pham,
-            status: trang_thai
+            name: name,
+            price: price,
+            category: category,
+            img: img,
+            detail: detail,
+            status: status
 
         }
         console.log(newProduct);
         console.log(productId);
         //call api cập nhật sản phẩm
-        updateProduct(productId, newProduct).then(
-            (response) => {
-                console.log(response);
-                if(response){
-                    //điều hướng về trang admin/product
-                    history.push('admin/product');
-                }
-            }
-        );
+        // updateProduct(productId, newProduct).then(
+        //     (response) => {
+        //         console.log(response);
+        //         if(response){
+        //             //điều hướng về trang admin/product
+        //             history.push('admin/product');
+        //         }
+        //     }
+        // );
 
         
     }
@@ -79,7 +80,7 @@ function EditProduct() {
                                 type="text"
                                 className="form-control"
                                 name="name_product"
-                                value={ten_san_pham}
+                                value={name}
                                 
                                 onChange={(event) => {setTenSP(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}
                             
@@ -91,7 +92,7 @@ function EditProduct() {
                                 type="number"
                                 className="form-control"
                                 name="price_Product"
-                                value={gia_san_pham}
+                                value={price}
                                 
                                 onChange={(event) => {setGiaSP(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}
                             
@@ -100,7 +101,7 @@ function EditProduct() {
                         <div className="form-group">
                             <label>Thuộc loại: </label>
 
-                            <select className="form-control" name="kind_Product" value={loai_san_pham} onChange={(event) => {setLoaiSP(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}>
+                            <select className="form-control" name="category_Product" value={category} onChange={(event) => {setLoaiSP(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}>
                                     <option value="lili_water">Bông súng</option>
                                     <option value="hibiscus ">Bông bụp</option>
                                     <option value="succulent ">Sen đá</option>
@@ -115,7 +116,7 @@ function EditProduct() {
                                 type="file"
                                 className="form-control"
                                 name="img_Product"
-                                value={img_san_pham}
+                                value={img}
                                 onChange={(event) => {setImgSP(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}
                 
                             
@@ -127,7 +128,7 @@ function EditProduct() {
                                 type="textarea"
                                 className="form-control"
                                 name="detail_Product"
-                                value={chi_tiet_san_pham}
+                                value={detail}
                                 onChange={(event) => {setChiTietSP(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}
                             
                             />
@@ -152,10 +153,10 @@ function EditProduct() {
                                 <input
                                     type="checkbox"
                                     name="status_Product" 
-                                    value={trang_thai}
+                                    value={status}
                                     onChange={(event) => {setTrangThaiSP(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}
                                     
-                                    checked={trang_thai}  
+                                    checked={status}  
                                 />
                                 Còn Hàng
                             </label>
