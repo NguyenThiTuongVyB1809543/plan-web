@@ -1,7 +1,7 @@
 import NavBar from './NavBar';
 import ListView from './ListView';
 import './Home.css';
-import DanhMuc from './DanhMuc';
+import Menu from './Menu';
 import Footer from './Footer';
 import { Route } from 'react-router-dom';
 import Login from './Login';
@@ -13,7 +13,7 @@ function Home(){
             <Route>
                 <NavBar />
                 
-                <DanhMuc/>
+                <Menu/>
                 <br/>
                 <div className="navbar_router">
                     <Route exact path="/home/login" component={Login}/>

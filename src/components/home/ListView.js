@@ -1,178 +1,68 @@
 import './Home.css';
-import FakeProducts from './FakeProducts';
+import { Route, NavLink} from 'react-router-dom';
+import { getAllProduct } from '../../services/ProductServices';
+import { useState, useEffect} from 'react';
 function ListView(){
+    //lấy tất cả product ra đây
+    const [ ProductList, setProductList] = useState([]); 
+    // let [name, setTenSP] = useState('');
+    // let [price, setGiaSP] = useState('');
+    // let [category, setLoaiSP] = useState('');
+    // let [img, setImgSP] = useState('');
+    // let [detail, setChiTietSP] = useState('');
+    // let [status, setTrangThaiSP] = useState('');
+    useEffect( () => {
+        getAllProduct().then(
+            (response) => {
+                console.log(response);
+                setProductList(response.data); //nếu muốn ra name thì response.data.name, nếu muốn ra deatail thì response.data.detail
+                // setTenSP (response.data.name);
+                // setGiaSP(response.data.price);
+                // setLoaiSP(response.data.category);
+                // setImgSP(response.data.img);
+                // setChiTietSP(response.data.detail);
+                // setTrangThaiSP(response.data.status);
+            
+            }
+        );
+    }, ProductList);
+
     return(
         <div>
-            <center>
-                
-                <div className="container">
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                                <td>
-                                    <FakeProducts
-                    
-                                        price="200.000"
-                                        image = "https://vuonuomsomot.com/wp-content/uploads/2020/06/cay-canh-bonsai.jpg"
-                                        >Bonsai Thái Lẻn
-                                    </FakeProducts>
-                                </td>
-                                    <FakeProducts
-                    
-                                        price="200.000"
-                                        image = "https://haitratancuong.com/blog/wp-content/uploads/2020/12/cay-bonsai-de-ban.jpg"
-                                        >Bonsai mini
-                                    </FakeProducts>
-                                <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                                <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                                <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                                <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                            <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                                <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                                <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                                <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                            <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                                <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                                <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                                <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                            <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                                <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                                <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                                <td>
-                                    <FakeProducts
-                                        price="200.000"
-                                        image = "https://cafebiz.cafebizcdn.vn/162123310254002176/2021/2/13/photo-6-16131973761421874875559.jpg"
-                                        >Bonsai Nhật
-                                    </FakeProducts>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                
-            </center>
+           <Route>
+                <center>
+                        
+                        <div className="container">
+                            {ProductList.map((value, index)=>{
+                                return(
+                                        <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                            <div className="thumbnail">
+                                                <img src={value.img} alt="img_product"/>
+                                                <div className="caption">
+                                                    <h3>{value.name}</h3>
+                                                    <p>
+                                                        {value.detail}
+                                                    </p>
+                                                    <p>
+                                                        <a href="/home/crt" className="btn btn-primary">Thêm vào giỏ hàng</a>
+                                                        <NavLink
+                                                            to={{pathname: '/home/cart', state: value.id}} // chỗ này được truyền qua cart và được lấy bằng useLocation   
+                                                        ></NavLink>
+                                                        <a href="/#" className="btn btn-default">Chi Tiết</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                )
+                            })}
+                            
+                        
+                            
+                        </div>
+                        
+                        
+                    </center>
+           </Route>
             
             
         </div>

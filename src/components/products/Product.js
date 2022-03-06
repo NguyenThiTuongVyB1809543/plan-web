@@ -16,7 +16,7 @@ function Product(){
             name: 'Bong bup',
             price: 30000,
             category: 'cactus',
-            img: '',
+            img: '/images/img_product/hoa_dam_bup_1.png',
             detail: 'bong bup som no chieu tan',
             status: true
         },
@@ -25,7 +25,7 @@ function Product(){
             name: 'Bong bup trang',
             price: 40000,
             category: 'hibicus',
-            img: '',
+            img: '/images/img_product/hoa_dam_bup.png',
             detail: 'bong bup som no chieu tan',
             status: true
         },
@@ -34,7 +34,7 @@ function Product(){
             name: 'Bong bup trang',
             price: 50000,
             category: 'lili_water',
-            img: '',
+            img: '/images/img_product/hoa_dam_bup_2.png',
             detail: 'bong bup som no chieu tan',
             status: false
         }

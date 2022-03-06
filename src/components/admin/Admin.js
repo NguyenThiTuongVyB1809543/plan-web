@@ -17,15 +17,6 @@ function Admin(){
                 <br/>
                 <SideBar />
                 {/* <EditProduct/> */}
-                
-                {/* <div className="content-containter">
-                    <Switch>
-                        <Route exact path='/admin/product'  component={Product}/>
-                        <Route path='/admin/product/create' component={CreateProduct}/>
-                        <Route path='admin/product/edit' component={EditProduct}/>
-                    </Switch>
-                </div> */}
-
                 {/* <CreateProduct /> */}
                 {/* <Product/> */}
             </Route>

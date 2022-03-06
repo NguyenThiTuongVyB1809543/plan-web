@@ -10,7 +10,7 @@ function NavBar(){
             <Route>
                 <center>
                 <div className="navbar">
-                    <a className="navbar-brand">Di's Graden</a>
+                    <a className="navbar-brand"><img src="/images/logo_di.png" className="img" alt="Image"/></a>
                     <ul className="nav navbar-nav">
                         <li className="active">
                             {/* <a href="#">Home</a> */}

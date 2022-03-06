@@ -1,7 +1,7 @@
 import './Admin.css';
 import { Route } from 'react-router-dom';
 // import Admin from './Admin';
-import logo_di from './img/logo_di.png'
+// import logo_di from '../../../public/images/logo_di.png';
 function NavBar(){
     return(
         <div>
@@ -9,7 +9,7 @@ function NavBar(){
 
                 
                 <nav className="navbar navbar-inverse">
-                    <a className="navbar-brand"><img src={logo_di} className="img" alt="Image"/></a>
+                    <a className="navbar-brand"><img src="/images/logo_di.png" className="img" alt="Image"/></a>
                     <ul className="nav navbar-nav">
                         <li className="active">
                             <a href="/home">Trang Chủ</a>

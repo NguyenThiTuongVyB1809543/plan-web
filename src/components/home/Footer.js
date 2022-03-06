@@ -1,4 +1,4 @@
-import logo_gmail from './img/logo_gmail.PNG';
+
 
 function Footer() {
 	return (
@@ -17,7 +17,7 @@ function Footer() {
                         <tr>
                             <td className="table_footer">Kí Túc Xá Khu B, Đại Học Cần Thơ</td>
                             <td className="table_footer">@Copyright by Di</td>
-                            <td className="table_footer"><img src={logo_gmail}/></td>
+                            <td className="table_footer"><img src="/images/icons/logo_gmail.PNG" className="img" alt="Image"/></td>
                             <td className="table_footer">ngfndgn</td>
                         </tr>
                     </tbody>

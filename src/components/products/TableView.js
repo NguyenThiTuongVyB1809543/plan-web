@@ -46,7 +46,7 @@ function TableView(props){
                                                             <td>{value.id}</td>
                                                             <td>{value.name}</td>
                                                             <td>{value.category}</td>
-                                                            <td><img src={value.img} alt="bongbup"/></td>
+                                                            <td><img src={value.img} alt="img_product"/></td>
                                                             <td>{value.price}</td>
                                                             <td>{value.detail}</td>
                                                             <td>

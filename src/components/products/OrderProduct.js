@@ -61,7 +61,7 @@ function OrderProduct(){
                 
                 <div className="container">
                     <br/>
-                    <TableViewOder
+                    <TableViewOrder
                         orderProductList = {orderProductList}
                     />
                     <NavLink to="/admin" className="btn btn-danger mr-10">

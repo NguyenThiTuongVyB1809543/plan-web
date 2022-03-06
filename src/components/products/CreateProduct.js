@@ -5,25 +5,25 @@ import {addProduct} from '../../services/ProductServices';
 
 function CreateProduct() {
 
-    let [ten_san_pham, setTenSP] = useState('');
-    let [gia_san_pham, setGiaSP] = useState('');
-    let [loai_san_pham, setLoaiSP] = useState('');
-    let [img_san_pham, setImgSP] = useState('');
-    let [chi_tiet_san_pham, setChiTietSP] = useState('');
-    let [trang_thai, setTrangThaiSP] = useState('');
+    let [name, setTenSP] = useState('');
+    let [price, setGiaSP] = useState('');
+    let [category, setLoaiSP] = useState('');
+    let [img, setImgSP] = useState('');
+    let [detail, setChiTietSP] = useState('');
+    let [status, setTrangThaiSP] = useState('');
    
-    let history = useHistory();
+    // let history = useHistory();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         let product = {
             id: '',
-            name: ten_san_pham,
-            price: gia_san_pham,
-            kind: loai_san_pham,
-            img: img_san_pham,
-            detail: chi_tiet_san_pham,
-            status: trang_thai
+            name: name,
+            price: price,
+            kind: category,
+            img: img,
+            detail: detail,
+            status: status
 
         }
         console.log(product);
@@ -33,7 +33,7 @@ function CreateProduct() {
                 console.log(response);
                 if(response){
                     //điều hướng về trang admin/product
-                    history.push('admin/product');
+                    // history.push('admin/product');
                 }
             }
         );
@@ -54,7 +54,7 @@ function CreateProduct() {
                                 type="text"
                                 className="form-control"
                                 name="name_product"
-                                value={ten_san_pham}
+                                value={name}
                                 
                                 onChange={(event) => {setTenSP(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}
                             />
@@ -65,7 +65,7 @@ function CreateProduct() {
                                 type="number"
                                 className="form-control"
                                 name="price_Product"
-                                value={gia_san_pham}
+                                value={price}
                                 
                                 onChange={(event) => {setGiaSP(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}
                             
@@ -74,7 +74,7 @@ function CreateProduct() {
                         <div className="form-group">
                             <label>Thuộc loại: </label>
 
-                            <select className="form-control" name="kind_Product" value={loai_san_pham} onChange={(event) => {setLoaiSP(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}>
+                            <select className="form-control" name="kind_Product" value={category} onChange={(event) => {setLoaiSP(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}>
                                     <option value="lili_water">Bông súng</option>
                                     <option value="hibiscus ">Bông bụp</option>
                                     <option value="succulent ">Sen đá</option>
@@ -89,7 +89,7 @@ function CreateProduct() {
                                 type="file"
                                 className="form-control"
                                 name="img_Product"
-                                value={img_san_pham}
+                                value={img}
                                 onChange={(event) => {setImgSP(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}
                 
                             
@@ -101,7 +101,7 @@ function CreateProduct() {
                                 type="textarea"
                                 className="form-control"
                                 name="detail_Product"
-                                value={chi_tiet_san_pham}
+                                value={detail}
                                 onChange={(event) => {setChiTietSP(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}
                             
                             />
@@ -126,10 +126,10 @@ function CreateProduct() {
                                 <input
                                     type="checkbox"
                                     name="status_Product" 
-                                    value={trang_thai}
+                                    value={status}
                                     onChange={(event) => {setTrangThaiSP(event.target.type === 'checkbox' ? event.target.checked : event.target.value)}}
                                     
-                                    checked={trang_thai}  
+                                    checked={status}  
                                 />
                                 Còn Hàng
                             </label>

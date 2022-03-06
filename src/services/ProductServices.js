@@ -26,6 +26,11 @@ const getProductById = (productId) => {
     return axios.get(`${baseURL}/${productId}`);
 }
 
+//lấy sản phẩm theo loại lấy nhiều sản phẩm
+const getProductByCategory = (categoryOfPlant) => {
+    //localhost:27017/productId = 'loại' 
+    return axios.get(`${baseURL}/${categoryOfPlant}`);
+}
 
 // lấy sản phẩm theo id (dùng cho update) update cho 1 sản phẩm
 const updateProduct = (productId, newProduct) => {
@@ -48,7 +53,8 @@ export{
     addProduct,
     getAllProduct,
     getProductById,
-    updateProduct
+    updateProduct,
+    getProductByCategory
     // deleteProductById,
     // deleteAll
 }
